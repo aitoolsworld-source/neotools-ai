@@ -1,594 +1,196 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>NeoGaming Arena</title>
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#070b1a;
-color:white;
-overflow-x:hidden;
-}
-
-/* Background Glow */
-
-body::before{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:#00ffc3;
-filter:blur(180px);
-top:-150px;
-left:-150px;
-opacity:0.15;
-z-index:-1;
-}
-
-body::after{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:#6a5cff;
-filter:blur(180px);
-bottom:-150px;
-right:-150px;
-opacity:0.15;
-z-index:-1;
-}
-
-/* Navbar */
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.08);
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.logo{
-font-size:30px;
-font-weight:700;
-color:#00ffc3;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#00ffc3;
-}
-
-/* Hero */
-
-.hero{
-min-height:85vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px 20px;
-}
-
-.hero h1{
-font-size:70px;
-margin-bottom:20px;
-line-height:1.2;
-}
-
-.hero span{
-color:#00ffc3;
-}
-
-.hero p{
-max-width:700px;
-margin:auto;
-font-size:18px;
-line-height:1.8;
-color:#bdbdbd;
-}
-
-.hero button{
-margin-top:35px;
-padding:15px 30px;
-border:none;
-border-radius:14px;
-background:#00ffc3;
-color:black;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
-
-.hero button:hover{
-transform:translateY(-5px);
-box-shadow:0 0 25px #00ffc3;
-}
-
-/* Cards */
-
-.games{
-padding:80px 8%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.08);
-padding:30px;
-border-radius:24px;
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-border-color:#00ffc3;
-}
-
-.card h2{
-margin-bottom:15px;
-font-size:28px;
-}
-
-.card p{
-color:#bdbdbd;
-line-height:1.7;
-margin-bottom:20px;
-}
-
-.card button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#00ffc3;
-font-size:15px;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
-
-.card button:hover{
-box-shadow:0 0 20px #00ffc3;
-}
-
-/* Wheel */
-
-.wheel{
-width:200px;
-height:200px;
-border-radius:50%;
-background:linear-gradient(45deg,#00ffc3,#6a5cff);
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:70px;
-margin:20px auto;
-transition:3s;
-box-shadow:0 0 35px #00ffc3;
-}
-
-/* Inputs */
-
-input{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#101626;
-color:white;
-margin-bottom:20px;
-outline:none;
-}
-
-/* Result Box */
-
-.result-box{
-background:#101626;
-padding:15px;
-border-radius:14px;
-margin-top:18px;
-display:none;
-line-height:1.7;
-color:#00ffc3;
-text-align:center;
-}
-
-/* Coins */
-
-.coins{
-font-size:60px;
-font-weight:bold;
-text-align:center;
-color:#00ffc3;
-}
-
-/* Features */
-
-.features{
-padding:80px 8%;
-}
-
-.features h1{
-text-align:center;
-font-size:45px;
-margin-bottom:50px;
-}
-
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.feature{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:20px;
-border:1px solid rgba(255,255,255,0.08);
-transition:0.3s;
-}
-
-.feature:hover{
-transform:translateY(-8px);
-border-color:#00ffc3;
-}
-
-.feature h3{
-margin-bottom:12px;
-}
-
-/* Footer */
-
-footer{
-padding:40px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,0.08);
-color:#888;
-margin-top:60px;
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:45px;
-}
-
-nav{
-display:none;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-NeoGaming
-</div>
-
-<nav>
-
-<a href="#">Home</a>
-<a href="#">Games</a>
-<a href="#">Rewards</a>
-<a href="#">Contact</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div>
-
-<h1>
-Play & Win <span>Gaming Coins</span>
-</h1>
-
-<p>
-Advanced futuristic gaming platform with rewards,
-spin games and premium UI 🚀
-</p>
-
-<button onclick="scrollGames()">
-Start Playing
-</button>
-
-</div>
-
-</section>
-
-<section class="games">
-
-<!-- Spin -->
-
-<div class="card">
-
-<h2>🎰 Spin & Win</h2>
-
-<p>
-Spin the wheel and earn random coins.
-</p>
-
-<div class="wheel"
-id="wheel">
-🎁
-</div>
-
-<button onclick="spinWheel()">
-SPIN NOW
-</button>
-
-<div class="result-box"
-id="spinResult">
-</div>
-
-</div>
-
-<!-- Guess -->
-
-<div class="card">
-
-<h2>🎮 Guess Number</h2>
-
-<p>
-Guess a number between 1-10.
-</p>
-
-<input type="number"
-id="guessInput"
-placeholder="Enter number">
-
-<button onclick="guessGame()">
-CHECK GUESS
-</button>
-
-<div class="result-box"
-id="guessResult">
-</div>
-
-</div>
-
-<!-- Reward -->
-
-<div class="card">
-
-<h2>🏆 Daily Reward</h2>
-
-<p>
-Claim your daily gaming reward.
-</p>
-
-<button onclick="dailyReward()">
-CLAIM REWARD
-</button>
-
-<div class="result-box"
-id="rewardResult">
-</div>
-
-</div>
-
-<!-- Coins -->
-
-<div class="card">
-
-<h2>💰 Coin Balance</h2>
-
-<p>
-Your current gaming coins.
-</p>
-
-<div class="coins"
-id="coinBalance">
-100
-</div>
-
-</div>
-
-</section>
-
-<section class="features">
-
-<h1>
-Platform Features
-</h1>
-
-<div class="feature-grid">
-
-<div class="feature">
-<h3>⚡ Fast Games</h3>
-<p>Optimized smooth gameplay.</p>
-</div>
-
-<div class="feature">
-<h3>🎨 Premium UI</h3>
-<p>Modern glassmorphism design.</p>
-</div>
-
-<div class="feature">
-<h3>📱 Mobile Friendly</h3>
-<p>Works perfectly on phones.</p>
-</div>
-
-<div class="feature">
-<h3>🚀 Advanced System</h3>
-<p>Built with modern JavaScript.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 NeoGaming Arena • Built With ❤️
-
-</footer>
-
-<script>
-
-let coins = 100;
-
-/* Scroll */
-
-function scrollGames(){
-
-window.scrollTo({
-
-top:700,
-
-behavior:'smooth'
-
-});
-
-}
-
-/* Update Coins */
-
-function updateCoins(){
-
-document.getElementById(
-"coinBalance"
-).innerHTML = coins;
-
-}
-
-/* Spin */
-
-function spinWheel(){
-
-let wheel =
-document.getElementById("wheel");
-
-let result =
-document.getElementById("spinResult");
-
-let randomCoins =
-Math.floor(Math.random()*200)+1;
-
-wheel.style.transform =
-"rotate(1440deg)";
-
-setTimeout(()=>{
-
-coins += randomCoins;
-
-updateCoins();
-
-result.innerHTML =
-"🎉 You won "
-+ randomCoins +
-" coins!";
-
-result.style.display = "block";
-
-},3000);
-
-}
-
-/* Guess */
-
-function guessGame(){
-
-let guess =
-document.getElementById(
-"guessInput"
-).value;
-
-let random =
-Math.floor(Math.random()*10)+1;
-
-let result =
-document.getElementById(
-"guessResult"
-);
-
-if(guess == random){
-
-coins += 50;
-
-result.innerHTML =
-"🔥 Correct Guess! +50 Coins";
-
-}else{
-
-result.innerHTML =
-"❌ Wrong! Number was "
-+ random;
-
-}
-
-updateCoins();
-
-result.style.display = "block";
-
-}
-
-/* Reward */
-
-function dailyReward(){
-
-let result =
-document.getElementById(
-"rewardResult"
-);
-
-coins += 25;
-
-updateCoins();
-
-result.innerHTML =
-"🎁 Daily Reward Claimed +25 Coins";
-
-result.style.display = "block";
-
-}
-
-</script>
-
-</body>
-  </html>
+<!DOCTYPE html><html lang=zh-CN style="background-color: #9195a3;"><head><link rel=icon type=image/png href=/static/manifest/link-logo.png><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=98BET><meta name=application-name content=98BET><meta name=format-detection content="telephone=yes"><meta name=mobile-web-app-capable content=yes><meta http-equiv=Cache-Control content="no-cache, no-store, must-revalidate"><meta http-equiv=Pragma content=no-cache><meta http-equiv=Expires content=0><meta property=og:title content=66Lottery><meta property=og:description content="66Lottery-Fair and safe, fast withdrawal"><meta property=og:type content=website><meta property=og:image content=/static/manifest/logo-192x192.png><meta name=twitter:card content=summary_large_image><meta name=twitter:title content=66Lottery><meta name=twitter:description content="66Lottery-Fair and safe, fast withdrawal"><meta name=twitter:image content=/static/manifest/logo-192x192.png><title>66Lottery</title><script>var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS
+				.supports('top: constant(a)'))
+			document.write(
+				'<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+				(coverSupport ? ', viewport-fit=cover' : '') + '" />')
+
+			document.addEventListener('DOMContentLoaded', function() {
+				var splashText = document.getElementById('splash-text');
+				splashText.innerText = 'Withdraw fast, safe and stable'; // 设置文本内容
+				splashText.style.opacity = 1;
+				document.title = '66Lottery'
+			});
+
+			if ('serviceWorker' in navigator) {
+				console.log("支持serviceWorker")
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('./static/manifest/firebase-messaging-sw.js')
+						.then((registration) => {
+							console.log('Service Worker 注册成功:', registration);
+						})
+						.catch((error) => {
+							console.log('Service Worker 注册失败:', error);
+						});
+				});
+			} else {
+				console.log("不支持serviceWorker")
+			}
+
+			const storedObject = localStorage.getItem('errorUrls');
+			window.errorUrls = storedObject ? JSON.parse(storedObject) : {};;
+			console.log(window.errorUrls);
+
+
+			function sendToServiceWorker() {
+				if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+					navigator.serviceWorker.controller.postMessage({
+						action: 'errorUrls',
+						key: 'errorUrls',
+						value: window.errorUrls || {}
+					}, [ /* transfer list */ ]);
+				}
+			}
+
+			sendToServiceWorker();
+
+
+			function addErrorUrl(url) {
+				if (!window.errorUrls[url]) {
+					window.errorUrls[url] = 0;
+				}
+				fetch(url, {
+						cache: 'no-store'
+					})
+					.then(response => response.text())
+					.then(text => {
+						// 处理文本
+					});
+				window.errorUrls[url] = window.errorUrls[url] + 1;
+				localStorage.setItem('errorUrls', JSON.stringify(window.errorUrls));
+
+				sendToServiceWorker();
+			}
+
+			function reloadScriptWithTimestamp(src) {
+				let script = document.createElement('script');
+				const time = new Date().getTime();
+				script.src = src + `?t=` + time;
+				script.onerror = function() {
+					console.log("Failed to load script with timestamp");
+				};
+				document.head.appendChild(script);
+			}
+
+			window.onerror = function(message, source, lineno, colno, error) {
+				if (source.endsWith('.js') && error instanceof SyntaxError) {
+					// reloadScriptWithTimestamp(source); // 重新加载触发错误的脚本
+					// 检查错误来源是否包含指定路径
+					if (source.includes('/static/js/chunk-vendors.') || source.includes('/static/js/index.')) {
+						console.log("Error in target script detected. Attempting to reload...");
+						reloadScriptWithTimestamp(source);
+					} else {
+						console.error("Error in load script detected.", source);
+						// 在这里可以执行其他操作
+						const loadingDiv = document.getElementById('splash');
+						if (loadingDiv) {
+							loadingDiv.classList.add('splash-hidden'); // 使用类来隐藏元素
+						}
+						addErrorUrl(source)
+					}
+
+				}
+				return false; // 允许错误继续传播，避免其他全局错误处理器被阻止
+			};
+			
+			// 按钮点击事件
+			function openLivePage() {
+				let url = 'https://live.cs66lottery.com/'
+				if(window.androidUtils && window.androidUtils.openInBrowser){
+					window.androidUtils.openInBrowser(url)
+				}else{
+					window.location.href = url;
+				}
+				
+			}</script><link rel=stylesheet href=./static/index.2da1efab.css><link rel=manifest href=/static/manifest/manifest.json></head><body><noscript><strong>Please enable JavaScript to continue.</strong></noscript><div id=splash class="start-page daman start-page-width"><div><div class="dice daman"></div><p id=splash-text style="color: #FFF; opacity: 0;">Withdraw fast, safe and stable</p><div class="logo daman"></div></div><button class=kfimg onclick=openLivePage()></button></div><div id=app></div><script src="./static/jschunk-vendors.js?v=1779347016763"></script><script src="./static/jsindex.js?v=1779347016763"></script></body><style>.start-page {
+			position: fixed;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, #ff8988 0%, #ffd0ba 100%);
+			bottom: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center
+		}
+
+		.start-page-width {
+			max-width: 400px;
+		}
+
+		.start-page.daman {
+			background: linear-gradient(169deg, #E22F2F 1.56%, #FFD0BA 39.74%, #FF8988 39.75%, #FFF 80.92%, #E33333 99%)
+		}
+
+		.start-page div {
+		
+			display: flex;
+		
+			flex-direction: column;
+		
+			justify-content: center;
+		
+			align-items: center
+		}
+
+		.start-page div .dice {
+			width: 2.66667rem;
+			height: 2.66667rem;
+			/* background-image: url(/static/manifest/game_dice.png); */
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center
+		}
+
+		.splash-hidden {
+			display: none;
+		}
+
+		.start-page div .dice.daman {
+			width: 24rem;
+			height: 21rem;
+			/* background-size: cover; */
+			background-image: url(/static/manifest/game_99lottery.png)
+		}
+
+		.start-page .kfimg {
+			display: block;
+			position: absolute;
+			right: 15px;
+			bottom: 15px;
+			width: 64px;
+			height: 64px;
+			/* background-size: cover; */
+			border-width: 0;
+			background-color: transparent;
+			background-image: url(/static/manifest/india_icon_sevice_new.png)
+			
+		}
+
+		.start-page div .logo {
+			background-repeat: no-repeat;
+			background-size: contain;
+			margin-top: 2.13333rem;
+			max-width: 50%
+		}
+
+		.start-page div .logo.daman {
+			width: 13rem;
+			height: 7rem;
+			/* background-size: cover; */
+			background-image: url(/static/manifest/game_99lottery_logo.png)
+		}
+
+		.start-page div p {
+			font-weight: 700;
+			font-size: 1.3rem;
+			margin-top: .4rem;
+			margin-bottom: 5rem;
+			padding: 0 .13333rem;
+			text-align: center
+		}
+
+		@media screen and (max-width: 960px) {
+			.start-page-width {
+				max-width: 1080px;
+			}
+		}</style></html>
