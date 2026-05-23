@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>NeoTools AI</title>
+<title>NeoGaming Arena</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -16,29 +22,27 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
-background:#050816;
+background:#070b1a;
 color:white;
 overflow-x:hidden;
 }
 
-/* Animated Background */
+/* Background Glow */
 
 body::before{
 content:"";
 position:fixed;
-width:600px;
-height:600px;
+width:500px;
+height:500px;
 background:#00ffc3;
 filter:blur(180px);
-top:-200px;
-left:-200px;
+top:-150px;
+left:-150px;
 opacity:0.15;
 z-index:-1;
-animation:move1 10s infinite alternate;
 }
 
 body::after{
@@ -48,28 +52,15 @@ width:500px;
 height:500px;
 background:#6a5cff;
 filter:blur(180px);
-bottom:-200px;
-right:-200px;
+bottom:-150px;
+right:-150px;
 opacity:0.15;
 z-index:-1;
-animation:move2 10s infinite alternate;
-}
-
-@keyframes move1{
-0%{transform:translate(0,0);}
-100%{transform:translate(100px,80px);}
-}
-
-@keyframes move2{
-0%{transform:translate(0,0);}
-100%{transform:translate(-100px,-80px);}
 }
 
 /* Navbar */
 
 header{
-position:sticky;
-top:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -77,11 +68,13 @@ padding:20px 8%;
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(255,255,255,0.08);
+position:sticky;
+top:0;
 z-index:100;
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:700;
 color:#00ffc3;
 }
@@ -90,7 +83,6 @@ nav a{
 color:white;
 text-decoration:none;
 margin-left:25px;
-font-size:15px;
 transition:0.3s;
 }
 
@@ -101,7 +93,7 @@ color:#00ffc3;
 /* Hero */
 
 .hero{
-min-height:90vh;
+min-height:85vh;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -109,106 +101,50 @@ text-align:center;
 padding:40px 20px;
 }
 
-.hero-content h1{
+.hero h1{
 font-size:70px;
-line-height:1.2;
 margin-bottom:20px;
+line-height:1.2;
 }
 
-.hero-content span{
+.hero span{
 color:#00ffc3;
 }
 
-.hero-content p{
+.hero p{
 max-width:700px;
 margin:auto;
-color:#bdbdbd;
 font-size:18px;
 line-height:1.8;
+color:#bdbdbd;
 }
 
-.hero-buttons{
+.hero button{
 margin-top:35px;
-}
-
-.hero-buttons button{
-padding:15px 28px;
+padding:15px 30px;
 border:none;
 border-radius:14px;
+background:#00ffc3;
+color:black;
 font-size:16px;
 font-weight:600;
-margin:10px;
 cursor:pointer;
 transition:0.3s;
 }
 
-.btn-primary{
-background:#00ffc3;
-color:black;
-}
-
-.btn-primary:hover{
+.hero button:hover{
 transform:translateY(-5px);
 box-shadow:0 0 25px #00ffc3;
 }
 
-.btn-secondary{
-background:rgba(255,255,255,0.08);
-color:white;
-border:1px solid rgba(255,255,255,0.1);
-}
+/* Cards */
 
-.btn-secondary:hover{
-transform:translateY(-5px);
-}
-
-/* Search */
-
-.search-box{
-max-width:700px;
-margin:40px auto 0;
-display:flex;
-background:rgba(255,255,255,0.06);
-padding:10px;
-border-radius:16px;
-backdrop-filter:blur(10px);
-}
-
-.search-box input{
-flex:1;
-padding:14px;
-background:transparent;
-border:none;
-outline:none;
-color:white;
-font-size:16px;
-}
-
-.search-box button{
-background:#00ffc3;
-border:none;
-padding:14px 24px;
-border-radius:12px;
-font-weight:600;
-cursor:pointer;
-}
-
-/* Section */
-
-.section-title{
-text-align:center;
-font-size:42px;
-margin-bottom:50px;
-}
-
-.tools{
+.games{
 padding:80px 8%;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:30px;
 }
-
-/* Cards */
 
 .card{
 background:rgba(255,255,255,0.05);
@@ -217,25 +153,6 @@ border:1px solid rgba(255,255,255,0.08);
 padding:30px;
 border-radius:24px;
 transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.card::before{
-content:"";
-position:absolute;
-width:200px;
-height:200px;
-background:#00ffc3;
-filter:blur(100px);
-top:-100px;
-right:-100px;
-opacity:0;
-transition:0.5s;
-}
-
-.card:hover::before{
-opacity:0.15;
 }
 
 .card:hover{
@@ -245,7 +162,7 @@ border-color:#00ffc3;
 
 .card h2{
 margin-bottom:15px;
-font-size:26px;
+font-size:28px;
 }
 
 .card p{
@@ -254,24 +171,13 @@ line-height:1.7;
 margin-bottom:20px;
 }
 
-.card input{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#101626;
-color:white;
-margin-top:10px;
-outline:none;
-}
-
 .card button{
-margin-top:18px;
 width:100%;
 padding:14px;
 border:none;
 border-radius:14px;
 background:#00ffc3;
+font-size:15px;
 font-weight:600;
 cursor:pointer;
 transition:0.3s;
@@ -281,31 +187,67 @@ transition:0.3s;
 box-shadow:0 0 20px #00ffc3;
 }
 
-/* QR */
+/* Wheel */
 
-#qrImage{
-margin-top:20px;
-width:220px;
-display:none;
-border-radius:12px;
+.wheel{
+width:200px;
+height:200px;
+border-radius:50%;
+background:linear-gradient(45deg,#00ffc3,#6a5cff);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:70px;
+margin:20px auto;
+transition:3s;
+box-shadow:0 0 35px #00ffc3;
 }
 
-/* Caption */
+/* Inputs */
 
-.caption-box{
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#101626;
+color:white;
+margin-bottom:20px;
+outline:none;
+}
+
+/* Result Box */
+
+.result-box{
 background:#101626;
 padding:15px;
 border-radius:14px;
 margin-top:18px;
 display:none;
-color:#00ffc3;
 line-height:1.7;
+color:#00ffc3;
+text-align:center;
+}
+
+/* Coins */
+
+.coins{
+font-size:60px;
+font-weight:bold;
+text-align:center;
+color:#00ffc3;
 }
 
 /* Features */
 
 .features{
 padding:80px 8%;
+}
+
+.features h1{
+text-align:center;
+font-size:45px;
+margin-bottom:50px;
 }
 
 .feature-grid{
@@ -338,305 +280,315 @@ padding:40px;
 text-align:center;
 border-top:1px solid rgba(255,255,255,0.08);
 color:#888;
-margin-top:80px;
+margin-top:60px;
 }
 
 /* Mobile */
 
 @media(max-width:768px){
 
-.hero-content h1{
+.hero h1{
 font-size:45px;
-}
-
-header{
-padding:18px 5%;
 }
 
 nav{
 display:none;
 }
 
-.search-box{
-flex-direction:column;
-gap:10px;
-}
-
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
 
-<div class="logo">NeoTools AI</div>
+<div class="logo">
+NeoGaming
+</div>
 
 <nav>
-<a href="#tools">Tools</a>
-<a href="#features">Features</a>
-<a href="#footer">Contact</a>
+
+<a href="#">Home</a>
+<a href="#">Games</a>
+<a href="#">Rewards</a>
+<a href="#">Contact</a>
+
 </nav>
 
 </header>
 
 <section class="hero">
 
-<div class="hero-content">
+<div>
 
-<h1>Create Smarter With <span>AI Tools</span></h1>
+<h1>
+Play & Win <span>Gaming Coins</span>
+</h1>
 
 <p>
-Modern AI tools platform for creators, students, freelancers and businesses.
-Fast, beautiful and fully mobile responsive 🚀
+Advanced futuristic gaming platform with rewards,
+spin games and premium UI 🚀
 </p>
 
-<div class="hero-buttons">
-
-<button class="btn-primary"
-onclick="document.getElementById('tools').scrollIntoView()">
-Explore Tools
-</button>
-
-<button class="btn-secondary">
-Premium UI
+<button onclick="scrollGames()">
+Start Playing
 </button>
 
 </div>
 
-<div class="search-box">
+</section>
 
-<input type="text" placeholder="Search AI tools...">
+<section class="games">
 
-<button>Search</button>
+<!-- Spin -->
 
+<div class="card">
+
+<h2>🎰 Spin & Win</h2>
+
+<p>
+Spin the wheel and earn random coins.
+</p>
+
+<div class="wheel"
+id="wheel">
+🎁
+</div>
+
+<button onclick="spinWheel()">
+SPIN NOW
+</button>
+
+<div class="result-box"
+id="spinResult">
+</div>
+
+</div>
+
+<!-- Guess -->
+
+<div class="card">
+
+<h2>🎮 Guess Number</h2>
+
+<p>
+Guess a number between 1-10.
+</p>
+
+<input type="number"
+id="guessInput"
+placeholder="Enter number">
+
+<button onclick="guessGame()">
+CHECK GUESS
+</button>
+
+<div class="result-box"
+id="guessResult">
+</div>
+
+</div>
+
+<!-- Reward -->
+
+<div class="card">
+
+<h2>🏆 Daily Reward</h2>
+
+<p>
+Claim your daily gaming reward.
+</p>
+
+<button onclick="dailyReward()">
+CLAIM REWARD
+</button>
+
+<div class="result-box"
+id="rewardResult">
+</div>
+
+</div>
+
+<!-- Coins -->
+
+<div class="card">
+
+<h2>💰 Coin Balance</h2>
+
+<p>
+Your current gaming coins.
+</p>
+
+<div class="coins"
+id="coinBalance">
+100
 </div>
 
 </div>
 
 </section>
 
-<section class="tools" id="tools">
+<section class="features">
 
-<div class="card">
-
-<h2>🔗 QR Code Generator</h2>
-
-<p>Create QR codes instantly for URLs and text.</p>
-
-<input type="text" id="qrText"
-placeholder="Enter text or URL">
-
-<button onclick="generateQR()">
-Generate QR
-</button>
-
-<img id="qrImage">
-
-</div>
-
-<div class="card">
-
-<h2>🤖 AI Caption Generator</h2>
-
-<p>Create captions for Instagram posts and reels.</p>
-
-<input type="text" id="captionInput"
-placeholder="Enter topic">
-
-<button onclick="generateCaption()">
-Generate Caption
-</button>
-
-<div class="caption-box" id="captionBox"></div>
-
-</div>
-
-<div class="card">
-
-<h2>🔐 Password Generator</h2>
-
-<p>Generate secure passwords instantly.</p>
-
-<button onclick="generatePassword()">
-Generate Password
-</button>
-
-<div class="caption-box" id="passwordBox"></div>
-
-</div>
-
-<div class="card">
-
-<h2>🧠 AI Bio Generator</h2>
-
-<p>Create stylish bios for social media.</p>
-
-<input type="text" id="bioInput"
-placeholder="Enter your niche">
-
-<button onclick="generateBio()">
-Generate Bio
-</button>
-
-<div class="caption-box" id="bioBox"></div>
-
-</div>
-
-</section>
-
-<section class="features" id="features">
-
-<h2 class="section-title">
-Why Choose NeoTools AI
-</h2>
+<h1>
+Platform Features
+</h1>
 
 <div class="feature-grid">
 
 <div class="feature">
-<h3>⚡ Fast Performance</h3>
-<p>Lightning fast tools optimized for mobile users.</p>
+<h3>⚡ Fast Games</h3>
+<p>Optimized smooth gameplay.</p>
 </div>
 
 <div class="feature">
-<h3>🎨 Premium Design</h3>
-<p>Modern glassmorphism futuristic interface.</p>
+<h3>🎨 Premium UI</h3>
+<p>Modern glassmorphism design.</p>
 </div>
 
 <div class="feature">
-<h3>📱 Fully Responsive</h3>
-<p>Works perfectly on all mobile devices.</p>
+<h3>📱 Mobile Friendly</h3>
+<p>Works perfectly on phones.</p>
 </div>
 
 <div class="feature">
-<h3>🚀 Easy To Use</h3>
-<p>Simple UI with powerful functionality.</p>
+<h3>🚀 Advanced System</h3>
+<p>Built with modern JavaScript.</p>
 </div>
 
 </div>
 
 </section>
 
-<footer id="footer">
+<footer>
 
-© 2026 NeoTools AI • Designed With ❤️
+© 2026 NeoGaming Arena • Built With ❤️
 
 </footer>
 
 <script>
 
-/* QR */
+let coins = 100;
 
-function generateQR(){
+/* Scroll */
 
-let text =
-document.getElementById("qrText").value;
+function scrollGames(){
 
-let qrImage =
-document.getElementById("qrImage");
+window.scrollTo({
 
-qrImage.src =
-"https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="
-+ text;
+top:700,
 
-qrImage.style.display = "block";
+behavior:'smooth'
+
+});
 
 }
 
-/* Caption */
+/* Update Coins */
 
-function generateCaption(){
+function updateCoins(){
 
-let topic =
-document.getElementById("captionInput").value;
+document.getElementById(
+"coinBalance"
+).innerHTML = coins;
 
-let captions = [
+}
 
-"🔥 " + topic + " vibes only!",
+/* Spin */
 
-"🚀 Leveling up with " + topic,
+function spinWheel(){
 
-"✨ New day new " + topic,
+let wheel =
+document.getElementById("wheel");
 
-"💯 Built different with " + topic,
+let result =
+document.getElementById("spinResult");
 
-"😎 " + topic + " energy today!"
+let randomCoins =
+Math.floor(Math.random()*200)+1;
 
-];
+wheel.style.transform =
+"rotate(1440deg)";
+
+setTimeout(()=>{
+
+coins += randomCoins;
+
+updateCoins();
+
+result.innerHTML =
+"🎉 You won "
++ randomCoins +
+" coins!";
+
+result.style.display = "block";
+
+},3000);
+
+}
+
+/* Guess */
+
+function guessGame(){
+
+let guess =
+document.getElementById(
+"guessInput"
+).value;
 
 let random =
-captions[Math.floor(Math.random()*captions.length)];
+Math.floor(Math.random()*10)+1;
 
-let box =
-document.getElementById("captionBox");
-
-box.innerHTML = random;
-
-box.style.display = "block";
-
-}
-
-/* Password */
-
-function generatePassword(){
-
-let chars =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%";
-
-let password = "";
-
-for(let i=0;i<12;i++){
-
-password += chars.charAt(
-Math.floor(Math.random()*chars.length)
+let result =
+document.getElementById(
+"guessResult"
 );
 
+if(guess == random){
+
+coins += 50;
+
+result.innerHTML =
+"🔥 Correct Guess! +50 Coins";
+
+}else{
+
+result.innerHTML =
+"❌ Wrong! Number was "
++ random;
+
 }
 
-let box =
-document.getElementById("passwordBox");
+updateCoins();
 
-box.innerHTML = password;
-
-box.style.display = "block";
+result.style.display = "block";
 
 }
 
-/* Bio */
+/* Reward */
 
-function generateBio(){
+function dailyReward(){
 
-let niche =
-document.getElementById("bioInput").value;
+let result =
+document.getElementById(
+"rewardResult"
+);
 
-let bios = [
+coins += 25;
 
-"🚀 Passionate about " + niche,
+updateCoins();
 
-"🔥 Creating content around " + niche,
+result.innerHTML =
+"🎁 Daily Reward Claimed +25 Coins";
 
-"💻 Digital creator | " + niche,
-
-"✨ Helping people with " + niche,
-
-"📈 Building my future with " + niche
-
-];
-
-let randomBio =
-bios[Math.floor(Math.random()*bios.length)];
-
-let box =
-document.getElementById("bioBox");
-
-box.innerHTML = randomBio;
-
-box.style.display = "block";
+result.style.display = "block";
 
 }
 
 </script>
 
 </body>
-</html>
+  </html>
