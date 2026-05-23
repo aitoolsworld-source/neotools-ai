@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoTools AI</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+    }
+
+    header{
+      padding:25px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #222;
+      position:sticky;
+      top:0;
+      background:#050505;
+      z-index:100;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#00ffcc;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:15px;
+      font-size:14px;
+    }
+
+    .hero{
+      text-align:center;
+      padding:70px 20px;
+    }
+
+    .hero h1{
+      font-size:42px;
+      margin-bottom:20px;
+      line-height:1.2;
+    }
+
+    .hero span{
+      color:#00ffcc;
+    }
+
+    .hero p{
+      color:#bbb;
+      max-width:600px;
+      margin:auto;
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .hero button{
+      margin-top:30px;
+      background:#00ffcc;
+      color:black;
+      border:none;
+      padding:14px 28px;
+      border-radius:12px;
+      font-size:17px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:32px;
+      margin-top:20px;
+      margin-bottom:30px;
+    }
+
+    .tools{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      padding:20px;
+    }
+
+    .card{
+      background:#111;
+      padding:25px;
+      border-radius:20px;
+      border:1px solid #222;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:#00ffcc;
+    }
+
+    .card h2{
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#bbb;
+      margin-bottom:20px;
+      line-height:1.5;
+    }
+
+    .card button{
+      background:white;
+      color:black;
+      border:none;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .about{
+      padding:60px 20px;
+      text-align:center;
+    }
+
+    .about p{
+      color:#bbb;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .contact{
+      padding:60px 20px;
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      max-width:500px;
+      padding:15px;
+      margin-top:15px;
+      border:none;
+      border-radius:12px;
+      background:#111;
+      color:white;
+    }
+
+    textarea{
+      width:100%;
+      max-width:500px;
+      height:150px;
+      padding:15px;
+      margin-top:15px;
+      border:none;
+      border-radius:12px;
+      background:#111;
+      color:white;
+    }
+
+    .contact button{
+      margin-top:20px;
+      background:#00ffcc;
+      color:black;
+      border:none;
+      padding:14px 25px;
+      border-radius:12px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      border-top:1px solid #222;
+      color:#777;
+      margin-top:40px;
+    }
+
+    @media(min-width:768px){
+
+      .tools{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero h1{
+        font-size:60px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">NeoTools AI</div>
+
+    <nav>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Create Faster With <span>AI Tools</span></h1>
+
+    <p>
+      Free online AI tools for creators, students, traders and business owners.
+      Built fully from mobile 🚀
+    </p>
+
+    <button onclick="scrollToTools()">Explore Tools</button>
+  </section>
+
+  <h2 class="section-title" id="tools">Popular Tools</h2>
+
+  <section class="tools">
+
+    <div class="card">
+      <h2>🖼 Image Compressor</h2>
+      <p>Compress images online without losing quality.</p>
+      <button onclick="comingSoon()">Open Tool</button>
+    </div>
+
+    <div class="card">
+      <h2>🔗 QR Generator</h2>
+      <p>Create QR codes instantly for links and text.</p>
+      <button onclick="comingSoon()">Open Tool</button>
+    </div>
+
+    <div class="card">
+      <h2>🤖 AI Caption Tool</h2>
+      <p>Create viral captions for Instagram and reels.</p>
+      <button onclick="comingSoon()">Open Tool</button>
+    </div>
+
+    <div class="card">
+      <h2>📄 PDF Converter</h2>
+      <p>Convert images and documents into PDF easily.</p>
+      <button onclick="comingSoon()">Open Tool</button>
+    </div>
+
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title">About NeoTools AI</h2>
+
+    <p>
+      NeoTools AI is a modern tools website designed for people who want fast and simple online utilities.
+      You can add ads, affiliate links and premium tools later to earn money from this website.
+    </p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <input type="text" placeholder="Your Name">
+    <br>
+
+    <input type="email" placeholder="Your Email">
+    <br>
+
+    <textarea placeholder="Your Message"></textarea>
+    <br>
+
+    <button onclick="sendMessage()">Send Message</button>
+  </section>
+
+  <footer>
+    © 2026 NeoTools AI • Made With ❤️
+  </footer>
+
+  <script>
+
+    function comingSoon(){
+      alert("Tool Coming Soon 🚀");
+    }
+
+    function sendMessage(){
+      alert("Message Sent Successfully ✅");
+    }
+
+    function scrollToTools(){
+      document.getElementById('tools').scrollIntoView({
+        behavior:'smooth'
+      });
+    }
+
+  </script>
+
+</body>
+</html>
