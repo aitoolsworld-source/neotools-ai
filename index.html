@@ -6,154 +6,365 @@
 
 <title>NeoTools AI</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
+background:#050816;
 color:white;
 overflow-x:hidden;
 }
 
+/* Animated Background */
+
+body::before{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:#00ffc3;
+filter:blur(180px);
+top:-200px;
+left:-200px;
+opacity:0.15;
+z-index:-1;
+animation:move1 10s infinite alternate;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:#6a5cff;
+filter:blur(180px);
+bottom:-200px;
+right:-200px;
+opacity:0.15;
+z-index:-1;
+animation:move2 10s infinite alternate;
+}
+
+@keyframes move1{
+0%{transform:translate(0,0);}
+100%{transform:translate(100px,80px);}
+}
+
+@keyframes move2{
+0%{transform:translate(0,0);}
+100%{transform:translate(-100px,-80px);}
+}
+
+/* Navbar */
+
 header{
+position:sticky;
+top:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px;
-border-bottom:1px solid #222;
-position:sticky;
-top:0;
-background:#050505;
+padding:20px 8%;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.08);
 z-index:100;
 }
 
 .logo{
 font-size:28px;
-font-weight:bold;
-color:#00ffcc;
+font-weight:700;
+color:#00ffc3;
 }
 
-.hero{
-padding:80px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:48px;
-margin-bottom:20px;
-line-height:1.2;
-}
-
-.hero span{
-color:#00ffcc;
-}
-
-.hero p{
-color:#bbb;
-font-size:18px;
-max-width:700px;
-margin:auto;
-line-height:1.7;
-}
-
-.tools{
-display:grid;
-grid-template-columns:1fr;
-gap:20px;
-padding:20px;
-margin-top:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.1);
-padding:25px;
-border-radius:20px;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:15px;
 transition:0.3s;
 }
 
+nav a:hover{
+color:#00ffc3;
+}
+
+/* Hero */
+
+.hero{
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+}
+
+.hero-content h1{
+font-size:70px;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero-content span{
+color:#00ffc3;
+}
+
+.hero-content p{
+max-width:700px;
+margin:auto;
+color:#bdbdbd;
+font-size:18px;
+line-height:1.8;
+}
+
+.hero-buttons{
+margin-top:35px;
+}
+
+.hero-buttons button{
+padding:15px 28px;
+border:none;
+border-radius:14px;
+font-size:16px;
+font-weight:600;
+margin:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn-primary{
+background:#00ffc3;
+color:black;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px #00ffc3;
+}
+
+.btn-secondary{
+background:rgba(255,255,255,0.08);
+color:white;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.btn-secondary:hover{
+transform:translateY(-5px);
+}
+
+/* Search */
+
+.search-box{
+max-width:700px;
+margin:40px auto 0;
+display:flex;
+background:rgba(255,255,255,0.06);
+padding:10px;
+border-radius:16px;
+backdrop-filter:blur(10px);
+}
+
+.search-box input{
+flex:1;
+padding:14px;
+background:transparent;
+border:none;
+outline:none;
+color:white;
+font-size:16px;
+}
+
+.search-box button{
+background:#00ffc3;
+border:none;
+padding:14px 24px;
+border-radius:12px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* Section */
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+}
+
+.tools{
+padding:80px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+/* Cards */
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.08);
+padding:30px;
+border-radius:24px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:200px;
+height:200px;
+background:#00ffc3;
+filter:blur(100px);
+top:-100px;
+right:-100px;
+opacity:0;
+transition:0.5s;
+}
+
+.card:hover::before{
+opacity:0.15;
+}
+
 .card:hover{
-transform:translateY(-6px);
-border-color:#00ffcc;
+transform:translateY(-10px);
+border-color:#00ffc3;
 }
 
 .card h2{
 margin-bottom:15px;
+font-size:26px;
 }
 
 .card p{
-color:#bbb;
+color:#bdbdbd;
+line-height:1.7;
 margin-bottom:20px;
-line-height:1.5;
 }
 
-button{
-background:#00ffcc;
-color:black;
-border:none;
-padding:12px 20px;
-border-radius:12px;
-font-weight:bold;
-cursor:pointer;
-font-size:15px;
-}
-
-input{
+.card input{
 width:100%;
 padding:14px;
 border:none;
-border-radius:12px;
-background:#111;
+border-radius:14px;
+background:#101626;
 color:white;
 margin-top:10px;
+outline:none;
 }
+
+.card button{
+margin-top:18px;
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#00ffc3;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card button:hover{
+box-shadow:0 0 20px #00ffc3;
+}
+
+/* QR */
 
 #qrImage{
 margin-top:20px;
-width:200px;
+width:220px;
 display:none;
-border-radius:10px;
+border-radius:12px;
 }
+
+/* Caption */
 
 .caption-box{
-background:#111;
+background:#101626;
 padding:15px;
-border-radius:12px;
-margin-top:15px;
+border-radius:14px;
+margin-top:18px;
 display:none;
-line-height:1.6;
-color:#00ffcc;
+color:#00ffc3;
+line-height:1.7;
 }
+
+/* Features */
+
+.features{
+padding:80px 8%;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.feature{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.feature:hover{
+transform:translateY(-8px);
+border-color:#00ffc3;
+}
+
+.feature h3{
+margin-bottom:12px;
+}
+
+/* Footer */
 
 footer{
+padding:40px;
 text-align:center;
-padding:30px;
-margin-top:50px;
-border-top:1px solid #222;
-color:#777;
+border-top:1px solid rgba(255,255,255,0.08);
+color:#888;
+margin-top:80px;
 }
 
-@media(min-width:768px){
+/* Mobile */
 
-.tools{
-grid-template-columns:1fr 1fr;
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:45px;
 }
 
-.hero h1{
-font-size:65px;
+header{
+padding:18px 5%;
+}
+
+nav{
+display:none;
+}
+
+.search-box{
+flex-direction:column;
+gap:10px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -162,33 +373,64 @@ font-size:65px;
 
 <div class="logo">NeoTools AI</div>
 
+<nav>
+<a href="#tools">Tools</a>
+<a href="#features">Features</a>
+<a href="#footer">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
 
-<h1>Create Amazing Content With <span>AI Tools</span></h1>
+<div class="hero-content">
+
+<h1>Create Smarter With <span>AI Tools</span></h1>
 
 <p>
-Free modern tools for creators, students and social media users 🚀
+Modern AI tools platform for creators, students, freelancers and businesses.
+Fast, beautiful and fully mobile responsive 🚀
 </p>
+
+<div class="hero-buttons">
+
+<button class="btn-primary"
+onclick="document.getElementById('tools').scrollIntoView()">
+Explore Tools
+</button>
+
+<button class="btn-secondary">
+Premium UI
+</button>
+
+</div>
+
+<div class="search-box">
+
+<input type="text" placeholder="Search AI tools...">
+
+<button>Search</button>
+
+</div>
+
+</div>
 
 </section>
 
-<section class="tools">
+<section class="tools" id="tools">
 
 <div class="card">
 
 <h2>🔗 QR Code Generator</h2>
 
-<p>Create QR codes instantly for links or text.</p>
+<p>Create QR codes instantly for URLs and text.</p>
 
-<input type="text" id="qrText" placeholder="Enter URL or text">
+<input type="text" id="qrText"
+placeholder="Enter text or URL">
 
-<br><br>
-
-<button onclick="generateQR()">Generate QR</button>
-
-<br>
+<button onclick="generateQR()">
+Generate QR
+</button>
 
 <img id="qrImage">
 
@@ -198,14 +440,14 @@ Free modern tools for creators, students and social media users 🚀
 
 <h2>🤖 AI Caption Generator</h2>
 
-<p>Generate captions for Instagram and reels.</p>
+<p>Create captions for Instagram posts and reels.</p>
 
 <input type="text" id="captionInput"
 placeholder="Enter topic">
 
-<br><br>
-
-<button onclick="generateCaption()">Generate Caption</button>
+<button onclick="generateCaption()">
+Generate Caption
+</button>
 
 <div class="caption-box" id="captionBox"></div>
 
@@ -213,33 +455,78 @@ placeholder="Enter topic">
 
 <div class="card">
 
-<h2>📄 PDF Tool</h2>
+<h2>🔐 Password Generator</h2>
 
-<p>Convert files into PDF easily.</p>
+<p>Generate secure passwords instantly.</p>
 
-<button onclick="comingSoon()">Open Tool</button>
+<button onclick="generatePassword()">
+Generate Password
+</button>
+
+<div class="caption-box" id="passwordBox"></div>
 
 </div>
 
 <div class="card">
 
-<h2>🖼 Image Compressor</h2>
+<h2>🧠 AI Bio Generator</h2>
 
-<p>Compress images online quickly.</p>
+<p>Create stylish bios for social media.</p>
 
-<button onclick="comingSoon()">Open Tool</button>
+<input type="text" id="bioInput"
+placeholder="Enter your niche">
+
+<button onclick="generateBio()">
+Generate Bio
+</button>
+
+<div class="caption-box" id="bioBox"></div>
 
 </div>
 
 </section>
 
-<footer>
+<section class="features" id="features">
 
-© 2026 NeoTools AI • Built With ❤️
+<h2 class="section-title">
+Why Choose NeoTools AI
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>⚡ Fast Performance</h3>
+<p>Lightning fast tools optimized for mobile users.</p>
+</div>
+
+<div class="feature">
+<h3>🎨 Premium Design</h3>
+<p>Modern glassmorphism futuristic interface.</p>
+</div>
+
+<div class="feature">
+<h3>📱 Fully Responsive</h3>
+<p>Works perfectly on all mobile devices.</p>
+</div>
+
+<div class="feature">
+<h3>🚀 Easy To Use</h3>
+<p>Simple UI with powerful functionality.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer id="footer">
+
+© 2026 NeoTools AI • Designed With ❤️
 
 </footer>
 
 <script>
+
+/* QR */
 
 function generateQR(){
 
@@ -250,51 +537,106 @@ let qrImage =
 document.getElementById("qrImage");
 
 qrImage.src =
-"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="
+"https://api.qrserver.com/v1/create-qr-code/?size=220x220&data="
 + text;
 
 qrImage.style.display = "block";
 
 }
 
+/* Caption */
+
 function generateCaption(){
 
 let topic =
 document.getElementById("captionInput").value;
 
-let captionBox =
-document.getElementById("captionBox");
-
 let captions = [
 
-"🔥 " + topic + " vibes today!",
+"🔥 " + topic + " vibes only!",
 
 "🚀 Leveling up with " + topic,
 
-"😎 Nothing beats " + topic,
+"✨ New day new " + topic,
 
-"✨ New day, new " + topic,
+"💯 Built different with " + topic,
 
-"💯 " + topic + " energy only!"
+"😎 " + topic + " energy today!"
 
 ];
 
-let randomCaption =
+let random =
 captions[Math.floor(Math.random()*captions.length)];
 
-captionBox.innerHTML = randomCaption;
+let box =
+document.getElementById("captionBox");
 
-captionBox.style.display = "block";
+box.innerHTML = random;
+
+box.style.display = "block";
 
 }
 
-function comingSoon(){
+/* Password */
 
-alert("More Tools Coming Soon 🚀");
+function generatePassword(){
+
+let chars =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%";
+
+let password = "";
+
+for(let i=0;i<12;i++){
+
+password += chars.charAt(
+Math.floor(Math.random()*chars.length)
+);
+
+}
+
+let box =
+document.getElementById("passwordBox");
+
+box.innerHTML = password;
+
+box.style.display = "block";
+
+}
+
+/* Bio */
+
+function generateBio(){
+
+let niche =
+document.getElementById("bioInput").value;
+
+let bios = [
+
+"🚀 Passionate about " + niche,
+
+"🔥 Creating content around " + niche,
+
+"💻 Digital creator | " + niche,
+
+"✨ Helping people with " + niche,
+
+"📈 Building my future with " + niche
+
+];
+
+let randomBio =
+bios[Math.floor(Math.random()*bios.length)];
+
+let box =
+document.getElementById("bioBox");
+
+box.innerHTML = randomBio;
+
+box.style.display = "block";
 
 }
 
 </script>
 
 </body>
-  </html>              
+</html>
